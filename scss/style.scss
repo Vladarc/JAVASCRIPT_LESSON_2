@@ -1,0 +1,93 @@
+
+@import 'normalize';
+@import 'variables';
+@import 'mixins';
+
+
+
+*{
+    box-sizing: border-box;
+}
+html{
+    font-size: 10px;
+}
+body{
+@include font($body-ff,1.4rem,$fc:$body-color,$lh:1.7);
+background-color: $body-bg;
+
+}
+.container{
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 15px;
+    background-color: $secondary-color;
+    border-left: $border-width solid $body-color;
+    border-right: $border-width solid $body-color;
+    min-height: 100vh;
+}
+    
+
+a,button{
+   @include tr;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px 40px;
+    background-color:$primary-color;
+    color:$body-color;
+    cursor: pointer;
+    outline: none;
+    text-transform: uppercase;
+    &--primary{
+        border: 0;
+        will-change: transform;
+ 
+        @include hover {
+            transform: scale(1.1);
+        }
+    }
+}
+
+.field{
+    max-width: 250px;
+    width: 100%;
+    padding: 5px 15px;
+    border:$border-width solid  $primary-color;
+    outline: none;
+    margin-bottom: 20px;
+    &:focus::placeholder {
+        color: transparent;
+    }
+    
+}
+.section{
+    &:first-of-type{
+        border-top: $border-width solid $body-color;
+    }
+    border-bottom: $border-width solid $body-color;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__task-name{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    &__wrap{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        max-width: 450px;
+        width: 100%;
+        position: relative;
+    }
+}
+.currency{
+    
+    position: absolute;
+    right: 0;
+    top:50%;
+    transform: translate(-50%,-100%);
+}
